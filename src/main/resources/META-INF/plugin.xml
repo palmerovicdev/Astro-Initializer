@@ -1,0 +1,36 @@
+<!-- Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
+<idea-plugin>
+
+  <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
+  <id>com.palmerovicdev.astroinitializer</id>
+
+  <!-- Text to display as name on Settings | Plugin page -->
+  <name>Astro Project Initializer</name>
+
+  <!-- Product and plugin compatibility requirements -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Text to display as description on Settings | Plugin page -->
+  <description>
+    <![CDATA[
+    Astro Project Initializer is a plugin that adds a new module type to IntelliJ IDEA. The module type is called <i>Astro</i> and it is a simple module that allows you to create a new Astro project in Jetbrains IDEs. The module type is added to the <b>File | New | Project...</b> menu.
+    ]]>
+  </description>
+  <change-notes>
+    <![CDATA[
+      <ul>
+        <li><b>0.0.1</b> Create project.</li>
+      </ul>
+    ]]>
+  </change-notes>
+
+  <!-- Text to display as company information on Settings | Plugin page -->
+  <vendor url="https://github.com/palmerovicdev">palmerovicdev</vendor>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.AstroModuleType"/>
+  </extensions>
+
+</idea-plugin>
