@@ -1,8 +1,7 @@
 plugins {
   id("java")
   id("org.jetbrains.intellij") version "1.17.3"
-  // lombok
-  id("io.freefair.lombok") version "5.3.0"
+  kotlin("jvm")
 }
 
 group = "com.palmerovicdev.astroinitializer"
@@ -13,7 +12,6 @@ repositories {
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_17
 }
 
 // See https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
@@ -31,4 +29,11 @@ tasks {
     sinceBuild.set("232")
     untilBuild.set("241.*")
   }
+}
+
+dependencies {
+  implementation(kotlin("stdlib-jdk8"))
+}
+kotlin {
+  jvmToolchain(17)
 }

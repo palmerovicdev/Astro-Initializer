@@ -33,4 +33,5 @@
     <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.AstroModuleType"/>
   </extensions>
 
+
 </idea-plugin>
