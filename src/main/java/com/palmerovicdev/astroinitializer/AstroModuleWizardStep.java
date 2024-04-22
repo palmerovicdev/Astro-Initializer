@@ -1,65 +1,43 @@
 package com.palmerovicdev.astroinitializer;
 
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
-import com.intellij.openapi.ui.ComboBox;
+import com.intellij.ide.wizard.CommitStepException;
+import com.palmerovicdev.astroinitializer.model.AstroModuleEntity;
+import com.palmerovicdev.astroinitializer.view.AstroModuleView;
 
 import javax.swing.*;
-import java.awt.*;
+import java.util.Objects;
 
 public class AstroModuleWizardStep extends ModuleWizardStep {
 
-  private JPanel panel;
-  private JComboBox<String> packageManager;
-  private JTextField templateName;
-  private JCheckBox installDependencies;
-  private JCheckBox createGitRepo;
-  private JCheckBox alwaysSkipYes;
-  private JCheckBox alwaysSkipHuston;
-  private JCheckBox fullUnicodeSupport;
-  private JComboBox<String> useTypescript;
+  private final AstroModuleView view;
+  private final AstroModuleEntity moduleEntity;
+
 
   public AstroModuleWizardStep() {
-    panel = new JPanel();
-    panel.setLayout(new GridLayout(9, 1));
-
-    packageManager = new ComboBox<>(new String[]{"npm", "pnpm", "yarn"});
-    templateName = new JTextField();
-    installDependencies = new JCheckBox("Install dependencies");
-    createGitRepo = new JCheckBox("Create git repo");
-    alwaysSkipYes = new JCheckBox("Always skip with yes to all");
-    alwaysSkipHuston = new JCheckBox("Always skip Huston");
-    fullUnicodeSupport = new JCheckBox("Full unicode support for windows");
-    useTypescript = new ComboBox<>(new String[]{"strict", "strictest", "relaxed"});
-
-    panel.add(new JLabel("Package Manager"));
-    panel.add(packageManager);
-    panel.add(new JLabel("Template Name"));
-    panel.add(templateName);
-    panel.add(installDependencies);
-    panel.add(createGitRepo);
-    panel.add(alwaysSkipYes);
-    panel.add(alwaysSkipHuston);
-    panel.add(fullUnicodeSupport);
-    panel.add(new JLabel("Use TypeScript"));
-    panel.add(useTypescript);
+    view = new AstroModuleView();
+    moduleEntity = new AstroModuleEntity();
   }
 
   @Override
   public JComponent getComponent() {
-    return panel;
+    return view.getPanel();
   }
 
   @Override
   public void updateDataModel() {
-    // Aquí puedes actualizar tu modelo de datos según la interfaz de usuario
-    // Por ejemplo:
-    // model.setPackageManager(packageManager.getSelectedItem().toString());
-    // model.setTemplateName(templateName.getText());
-    // model.setInstallDependencies(installDependencies.isSelected());
-    // model.setCreateGitRepo(createGitRepo.isSelected());
-    // model.setAlwaysSkipYes(alwaysSkipYes.isSelected());
-    // model.setAlwaysSkipHuston(alwaysSkipHuston.isSelected());
-    // model.setFullUnicodeSupport(fullUnicodeSupport.isSelected());
-    // model.setUseTypescript(useTypescript.getSelectedItem().toString());
+    moduleEntity.setTemplateName(view.getTemplateNameTextField().getText());
+    moduleEntity.setPackageManager(Objects.requireNonNullElse(view.getPackageManagerComboBox().getSelectedItem(), "npm").toString());
+    moduleEntity.setInstallDependencies(view.getInstallDependenciesCheckBox().isSelected());
+    moduleEntity.setCreateGitRepo(view.getCreateGitRepoCheckBox().isSelected());
+    moduleEntity.setUseTypescript(view.getUseTypescriptCheckBox().isSelected());
+    moduleEntity.setTypescriptMode(Objects.requireNonNullElse(view.getTypescriptModeComboBox().getSelectedItem(), "relaxed").toString());
+    moduleEntity.setUseTemplate(view.getUseTemplateComboBox().isSelected());
+    moduleEntity.setUnicodeSupport(view.getUnicodeSupportCheckBox().isSelected());
+}
+
+  @Override
+  public void onWizardFinished() throws CommitStepException {
+    super.onWizardFinished();
   }
 }

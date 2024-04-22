@@ -1,6 +1,8 @@
 plugins {
   id("java")
   id("org.jetbrains.intellij") version "1.17.3"
+  // lombok
+  id("io.freefair.lombok") version "5.3.0"
 }
 
 group = "com.palmerovicdev.astroinitializer"
