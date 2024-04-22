@@ -31,6 +31,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.module.AstroModuleType"/>
+    <configurationType implementation="com.palmerovicdev.astroinitializer.runConfig.AstroRunConfigurationType"/>
   </extensions>
 
 
