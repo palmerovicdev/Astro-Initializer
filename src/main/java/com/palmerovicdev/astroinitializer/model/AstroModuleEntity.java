@@ -1,5 +1,10 @@
 package com.palmerovicdev.astroinitializer.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class AstroModuleEntity {
     private String templateName;
     private String packageManager;
@@ -10,67 +15,4 @@ public class AstroModuleEntity {
     private boolean useTemplate;
     private boolean unicodeSupport;
 
-    public String getTemplateName() {
-        return templateName;
-    }
-
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
-    }
-
-    public String getPackageManager() {
-        return packageManager;
-    }
-
-    public void setPackageManager(String packageManager) {
-        this.packageManager = packageManager;
-    }
-
-    public boolean isInstallDependencies() {
-        return installDependencies;
-    }
-
-    public void setInstallDependencies(boolean installDependencies) {
-        this.installDependencies = installDependencies;
-    }
-
-    public boolean isCreateGitRepo() {
-        return createGitRepo;
-    }
-
-    public void setCreateGitRepo(boolean createGitRepo) {
-        this.createGitRepo = createGitRepo;
-    }
-
-    public boolean isUseTypescript() {
-        return useTypescript;
-    }
-
-    public void setUseTypescript(boolean useTypescript) {
-        this.useTypescript = useTypescript;
-    }
-
-    public String getTypescriptMode() {
-        return typescriptMode;
-    }
-
-    public void setTypescriptMode(String typescriptMode) {
-        this.typescriptMode = typescriptMode;
-    }
-
-    public boolean isUseTemplate() {
-        return useTemplate;
-    }
-
-    public void setUseTemplate(boolean useTemplate) {
-        this.useTemplate = useTemplate;
-    }
-
-    public boolean isUnicodeSupport() {
-        return unicodeSupport;
-    }
-
-    public void setUnicodeSupport(boolean unicodeSupport) {
-        this.unicodeSupport = unicodeSupport;
-    }
 }
