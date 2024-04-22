@@ -1,4 +1,4 @@
-package com.palmerovicdev.astroinitializer.view;
+package com.palmerovicdev.astroinitializer.module.view;
 
 import javax.swing.*;
 

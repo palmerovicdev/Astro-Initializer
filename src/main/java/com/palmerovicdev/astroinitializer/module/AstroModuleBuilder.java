@@ -1,4 +1,4 @@
-package com.palmerovicdev.astroinitializer;
+package com.palmerovicdev.astroinitializer.module;
 
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;

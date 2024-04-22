@@ -30,7 +30,7 @@
   <vendor url="https://github.com/palmerovicdev">palmerovicdev</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
-    <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.AstroModuleType"/>
+    <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.module.AstroModuleType"/>
   </extensions>
 
 

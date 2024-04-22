@@ -1,8 +1,8 @@
-package com.palmerovicdev.astroinitializer;
+package com.palmerovicdev.astroinitializer.module;
 
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.palmerovicdev.astroinitializer.model.AstroModuleEntity;
-import com.palmerovicdev.astroinitializer.view.AstroModuleView;
+import com.palmerovicdev.astroinitializer.module.view.AstroModuleView;
 
 import javax.swing.*;
 import java.util.Objects;

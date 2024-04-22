@@ -1,4 +1,4 @@
-package com.palmerovicdev.astroinitializer;
+package com.palmerovicdev.astroinitializer.module;
 
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.WizardContext;
