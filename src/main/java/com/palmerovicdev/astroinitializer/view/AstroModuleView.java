@@ -1,7 +1,10 @@
 package com.palmerovicdev.astroinitializer.view;
 
+import lombok.Getter;
+
 import javax.swing.*;
 
+@Getter
 public class AstroModuleView {
     private JPanel panel;
     private JTextField templateNameTextField;
@@ -23,57 +26,6 @@ public class AstroModuleView {
         typescriptModeComboBox.addItem("strict");
         typescriptModeComboBox.addItem("strictest");
         typescriptModeComboBox.addItem("relaxed");
-    }
-
-    public JPanel getPanel() {
-        return panel;
-    }
-
-    public JTextField getTemplateNameTextField() {
-        return templateNameTextField;
-    }
-
-    public JCheckBox getInstallDependenciesCheckBox() {
-        return installDependenciesCheckBox;
-    }
-
-
-    public JCheckBox getCreateGitRepoCheckBox() {
-        return createGitRepoCheckBox;
-    }
-
-    public JComboBox<String> getPackageManagerComboBox() {
-        return packageManagerComboBox;
-    }
-
-    public JComboBox<String> getTypescriptModeComboBox() {
-        return typescriptModeComboBox;
-    }
-
-    public JCheckBox getUseTypescriptCheckBox() {
-        return useTypescriptCheckBox;
-    }
-
-    public JLabel getPackageManagerlabel() {
-        return packageManagerlabel;
-    }
-
-
-    public JCheckBox getUseTemplateComboBox() {
-        return useTemplateComboBox;
-    }
-
-    public JLabel getTemplateNameLabel() {
-        return templateNameLabel;
-    }
-
-
-    public JCheckBox getUnicodeSupportCheckBox() {
-        return unicodeSupportCheckBox;
-    }
-
-    public JLabel getTypescriptModeLabel() {
-        return typescriptModeLabel;
     }
 
 }
