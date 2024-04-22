@@ -13,6 +13,15 @@ public class AstroModuleEntity {
     private boolean useTemplate;
     private boolean unicodeSupport;
 
+    private static AstroModuleEntity instance;
+
+    public static AstroModuleEntity instance(){
+        if(instance == null){
+            instance = new AstroModuleEntity();
+        }
+        return instance;
+    }
+
     public String getScript() {
         return script;
     }

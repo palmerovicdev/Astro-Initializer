@@ -16,7 +16,7 @@ public class AstroModuleWizardStep extends ModuleWizardStep {
 
     public AstroModuleWizardStep() {
         view = new AstroModuleView();
-        moduleEntity = new AstroModuleEntity();
+        moduleEntity = AstroModuleEntity.instance();
     }
 
     @Override
@@ -53,7 +53,7 @@ public class AstroModuleWizardStep extends ModuleWizardStep {
                 script.append("yarn create astro | ");
         }
         if (script.substring(0, 3).contains("npm")) secondPartofTheScript.append(" --");
-        secondPartofTheScript.append(" --yes --skip-huston");
+        secondPartofTheScript.append(" --yes");
         var a = moduleEntity.isInstallDependencies() ?
                 secondPartofTheScript.append(" --install") :
                 secondPartofTheScript.append(" --no-install");

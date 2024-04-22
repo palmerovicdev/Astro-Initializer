@@ -43,7 +43,7 @@ final class AstroModuleType extends ModuleType<AstroModuleBuilder> {
     @NotNull
     @Override
     public Icon getNodeIcon(@Deprecated boolean b) {
-        return AstroIcons.Sdk_default_icon;
+        return AstroIcons.ICON;
     }
 
     @Override

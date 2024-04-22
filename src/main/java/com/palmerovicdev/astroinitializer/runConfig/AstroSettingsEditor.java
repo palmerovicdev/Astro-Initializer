@@ -1,36 +1,41 @@
-// Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 package com.palmerovicdev.astroinitializer.runConfig;
 
-import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.options.SettingsEditor;
-import com.intellij.openapi.ui.TextFieldWithBrowseButton;
+import com.intellij.openapi.ui.ComboBox;
 import com.intellij.util.ui.FormBuilder;
+import com.palmerovicdev.astroinitializer.model.AstroModuleEntity;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class AstroSettingsEditor extends SettingsEditor<AstroRunConfiguration> {
+public final class AstroSettingsEditor extends SettingsEditor<AstroRunConfiguration> {
 
   private final JPanel myPanel;
-  private final TextFieldWithBrowseButton scriptPathField;
+  private final JTextField scriptTextField;
+  private final JComboBox<String> packageManagerComboBox; // Add this field
 
   public AstroSettingsEditor() {
-    scriptPathField = new TextFieldWithBrowseButton();
-    scriptPathField.addBrowseFolderListener("Select Script File", null, null,
-        FileChooserDescriptorFactory.createSingleFileDescriptor());
+    scriptTextField = new JTextField();
+    packageManagerComboBox = new ComboBox<>(new String[]{"npm", "pnpm", "yarn"}); // Initialize the field
     myPanel = FormBuilder.createFormBuilder()
-        .addLabeledComponent("Script file", scriptPathField)
-        .getPanel();
+                         .addLabeledComponent("Script Text:", scriptTextField)
+                         .addLabeledComponent("Package Manager:", packageManagerComboBox) // Add the field to the form
+                         .getPanel();
+
+    packageManagerComboBox.addActionListener(e -> {
+        scriptTextField.setText(packageManagerComboBox.getSelectedItem() + " run dev");
+    });
   }
 
   @Override
-  protected void resetEditorFrom(AstroRunConfiguration astroRunConfiguration) {
-    scriptPathField.setText(astroRunConfiguration.getScriptName());
+  protected void resetEditorFrom(@NotNull AstroRunConfiguration astroRunConfiguration) {
+    scriptTextField.setText("npm run dev");
+    packageManagerComboBox.setSelectedItem("npm");
   }
 
   @Override
   protected void applyEditorTo(@NotNull AstroRunConfiguration astroRunConfiguration) {
-    astroRunConfiguration.setScriptName(scriptPathField.getText());
+    astroRunConfiguration.setScriptText(packageManagerComboBox.getSelectedItem() + " run dev");
   }
 
   @NotNull

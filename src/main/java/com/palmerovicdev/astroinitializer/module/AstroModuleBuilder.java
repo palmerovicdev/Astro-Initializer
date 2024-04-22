@@ -48,6 +48,7 @@ public class AstroModuleBuilder extends ModuleBuilder {
     @Override
     public @Nullable Module commitModule(@NotNull Project project, @Nullable ModifiableModuleModel model) {
         var module = super.commitModule(project, model);
+        wizardStep.getModuleEntity().setProjectLocation(getModuleFileDirectory());
         runCommandInTerminal(project, wizardStep.getModuleEntity().getScript(), getModuleFileDirectory());
         refreshProjectDirectory();
         return module;
@@ -76,13 +77,6 @@ public class AstroModuleBuilder extends ModuleBuilder {
                 Content content = ContentFactory.SERVICE.getInstance().createContent(console.getComponent(), "", false);
                 terminal.getContentManager().addContent(content);
                 terminal.show(null);
-
-                processHandler.addProcessListener(new ProcessAdapter() {
-                    @Override
-                    public void processTerminated(@NotNull ProcessEvent event) {
-                        VirtualFileManager.getInstance().syncRefresh();
-                    }
-                });
 
             } catch (ExecutionException e) {
                 e.printStackTrace();
