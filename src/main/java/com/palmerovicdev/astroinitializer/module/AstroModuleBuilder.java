@@ -56,14 +56,14 @@ public class AstroModuleBuilder extends ModuleBuilder {
 
 
     public void runCommandInTerminal(Project project, String command, String workingDirectory) {
-        ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
+        var toolWindowManager = ToolWindowManager.getInstance(project);
         toolWindowManager.invokeLater(() -> {
-            ToolWindow terminal = toolWindowManager.getToolWindow(ToolWindowId.COMMANDER);
+            var terminal = toolWindowManager.getToolWindow(ToolWindowId.COMMANDER);
             if (terminal == null) {
                 terminal = toolWindowManager.registerToolWindow(ToolWindowId.COMMANDER, true, ToolWindowAnchor.BOTTOM);
                 terminal.setTitle("Astro Commander");
             }
-            GeneralCommandLine commandLine = new GeneralCommandLine();
+            var commandLine = new GeneralCommandLine();
             commandLine.setExePath("bash");
             commandLine.addParameter("-c");
             commandLine.addParameter(command.replace("|",getName().replace(" ","-")));
@@ -87,7 +87,7 @@ public class AstroModuleBuilder extends ModuleBuilder {
 
     private void refreshProjectDirectory() {
         var directory = getModuleFileDirectory();
-        VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(Objects.requireNonNullElse(directory, ""));
+        var virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(Objects.requireNonNullElse(directory, ""));
         if (virtualFile != null) {
             RefreshQueue.getInstance().refresh(false, true, null, virtualFile);
         }

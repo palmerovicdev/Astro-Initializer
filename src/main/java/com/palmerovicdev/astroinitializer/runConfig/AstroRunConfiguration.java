@@ -37,12 +37,12 @@ public class AstroRunConfiguration extends RunConfigurationBase<AstroRunConfigur
             @NotNull
             @Override
             protected ProcessHandler startProcess() throws ExecutionException {
-                GeneralCommandLine commandLine = new GeneralCommandLine();
+                var commandLine = new GeneralCommandLine();
                 commandLine.setExePath("bash");
                 commandLine.addParameter("-c");
                 commandLine.addParameter(getScriptText());
                 commandLine.setWorkDirectory(getProject().getBasePath());
-                OSProcessHandler processHandler = ProcessHandlerFactory.getInstance()
+                var processHandler = ProcessHandlerFactory.getInstance()
                                                                        .createColoredProcessHandler(commandLine);
                 ProcessTerminatedListener.attach(processHandler);
 
