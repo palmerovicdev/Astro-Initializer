@@ -3,8 +3,6 @@ package com.palmerovicdev.astroinitializer.module;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.process.OSProcessHandler;
-import com.intellij.execution.process.ProcessAdapter;
-import com.intellij.execution.process.ProcessEvent;
 import com.intellij.ide.util.projectWizard.ModuleBuilder;
 import com.intellij.ide.util.projectWizard.ModuleWizardStep;
 import com.intellij.ide.util.projectWizard.WizardContext;
@@ -15,10 +13,7 @@ import com.intellij.openapi.module.ModuleType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.vfs.LocalFileSystem;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vfs.newvfs.RefreshQueue;
-import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowId;
 import com.intellij.openapi.wm.ToolWindowManager;
@@ -48,7 +43,6 @@ public class AstroModuleBuilder extends ModuleBuilder {
     @Override
     public @Nullable Module commitModule(@NotNull Project project, @Nullable ModifiableModuleModel model) {
         var module = super.commitModule(project, model);
-        wizardStep.getModuleEntity().setProjectLocation(getModuleFileDirectory());
         runCommandInTerminal(project, wizardStep.getModuleEntity().getScript(), getModuleFileDirectory());
         refreshProjectDirectory();
         return module;
@@ -66,7 +60,7 @@ public class AstroModuleBuilder extends ModuleBuilder {
             var commandLine = new GeneralCommandLine();
             commandLine.setExePath("bash");
             commandLine.addParameter("-c");
-            commandLine.addParameter(command.replace("|",getName().replace(" ","-")));
+            commandLine.addParameter(command.replace("|", getName().replace(" ", "-")));
             commandLine.setWorkDirectory(workingDirectory.substring(0, workingDirectory.lastIndexOf(File.separator)));
 
             try {

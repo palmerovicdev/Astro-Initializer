@@ -3,21 +3,17 @@ package com.palmerovicdev.astroinitializer.runConfig;
 import com.intellij.execution.ExecutionException;
 import com.intellij.execution.Executor;
 import com.intellij.execution.configurations.*;
-import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.process.ProcessHandlerFactory;
 import com.intellij.execution.process.ProcessTerminatedListener;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.execution.runners.ProgramRunner;
-import com.intellij.ide.BrowserUtil;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.NlsActions;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import static com.intellij.util.TimeoutUtil.sleep;
 
 public class AstroRunConfiguration extends RunConfigurationBase<AstroRunConfigurationOptions> {
 
@@ -43,7 +39,7 @@ public class AstroRunConfiguration extends RunConfigurationBase<AstroRunConfigur
                 commandLine.addParameter(getScriptText());
                 commandLine.setWorkDirectory(getProject().getBasePath());
                 var processHandler = ProcessHandlerFactory.getInstance()
-                                                                       .createColoredProcessHandler(commandLine);
+                                                          .createColoredProcessHandler(commandLine);
                 ProcessTerminatedListener.attach(processHandler);
 
                 return processHandler;

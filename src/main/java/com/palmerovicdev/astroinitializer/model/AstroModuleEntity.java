@@ -1,9 +1,8 @@
 package com.palmerovicdev.astroinitializer.model;
 
 public class AstroModuleEntity {
+    private static AstroModuleEntity instance;
     private String script;
-    private String projectName;
-    private String projectLocation;
     private String templateName;
     private String packageManager;
     private boolean installDependencies;
@@ -13,10 +12,8 @@ public class AstroModuleEntity {
     private boolean useTemplate;
     private boolean unicodeSupport;
 
-    private static AstroModuleEntity instance;
-
-    public static AstroModuleEntity instance(){
-        if(instance == null){
+    public static AstroModuleEntity instance() {
+        if (instance == null) {
             instance = new AstroModuleEntity();
         }
         return instance;
@@ -28,22 +25,6 @@ public class AstroModuleEntity {
 
     public void setScript(String script) {
         this.script = script;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
-
-    public String getProjectLocation() {
-        return projectLocation;
-    }
-
-    public void setProjectLocation(String projectLocation) {
-        this.projectLocation = projectLocation;
     }
 
     public String getTemplateName() {

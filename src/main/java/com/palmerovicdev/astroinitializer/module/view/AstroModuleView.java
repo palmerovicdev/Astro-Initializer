@@ -10,7 +10,6 @@ public class AstroModuleView {
     private JComboBox<String> packageManagerComboBox;
     private JComboBox<String> typescriptModeComboBox;
     private JCheckBox useTypescriptCheckBox;
-    private JLabel packageManagerlabel;
     private JCheckBox useTemplateCheckBox;
     private JLabel templateNameLabel;
     private JCheckBox unicodeSupportCheckBox;
@@ -75,24 +74,13 @@ public class AstroModuleView {
         return useTypescriptCheckBox;
     }
 
-    public JLabel getPackageManagerlabel() {
-        return packageManagerlabel;
-    }
-
     public JCheckBox getUseTemplateComboBox() {
         return useTemplateCheckBox;
-    }
-
-    public JLabel getTemplateNameLabel() {
-        return templateNameLabel;
     }
 
     public JCheckBox getUnicodeSupportCheckBox() {
         return unicodeSupportCheckBox;
     }
 
-    public JLabel getTypescriptModeLabel() {
-        return typescriptModeLabel;
-    }
 
 }

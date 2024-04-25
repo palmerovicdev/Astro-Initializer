@@ -6,12 +6,12 @@ import icons.AstroIcons;
 
 final class AstroRunConfigurationType extends ConfigurationTypeBase {
 
-  static final String ID = "AstroRunConfiguration";
+    static final String ID = "AstroRunConfiguration";
 
-  AstroRunConfigurationType() {
-    super(ID, "Astro", "Demo run configuration type",
-        NotNullLazyValue.createValue(() -> AstroIcons.ICON));
-    addFactory(new AstroConfigurationFactory(this));
-  }
+    AstroRunConfigurationType() {
+        super(ID, "Astro", "Demo run configuration type",
+              NotNullLazyValue.createValue(() -> AstroIcons.ICON));
+        addFactory(new AstroConfigurationFactory(this));
+    }
 
 }

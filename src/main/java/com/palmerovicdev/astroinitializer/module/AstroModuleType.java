@@ -47,7 +47,7 @@ final class AstroModuleType extends ModuleType<AstroModuleBuilder> {
     }
 
     @Override
-    public ModuleWizardStep [] createWizardSteps(
+    public ModuleWizardStep[] createWizardSteps(
             @NotNull WizardContext wizardContext,
             @NotNull AstroModuleBuilder moduleBuilder,
             @NotNull ModulesProvider modulesProvider) {
