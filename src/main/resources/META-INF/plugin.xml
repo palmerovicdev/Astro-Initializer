@@ -23,7 +23,7 @@
   <vendor url="https://github.com/palmerovicdev">palmerovicdev</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
-    <moduleType id="DEMO_MODULE_TYPE" implementationClass="com.palmerovicdev.astroinitializer.module.AstroModuleType"/>
+    <moduleType id="ASTRO_MODULE" implementationClass="com.palmerovicdev.astroinitializer.module.AstroModuleType"/>
     <configurationType implementation="com.palmerovicdev.astroinitializer.runConfig.AstroRunConfigurationType"/>
     <stepsBeforeRunProvider implementation="com.palmerovicdev.astroinitializer.runConfig.AstroBeforeRunTaskProvider"/>
   </extensions>
